@@ -3,155 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>งานแก้บรรณานุกรม - Mobile Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <title>งานแก้บรรณานุกรม - Complete Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f4f6f9;
+            --primary: #2563eb;
+            --bg: #f8fafc;
             --card: #ffffff;
-            --primary: #4a90e2;
-            --text: #2c3e50;
-            --shadow: 0 10px 25px rgba(0,0,0,0.08);
-            --accent-shadow: 0 15px 35px rgba(74, 144, 226, 0.2);
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
         body {
             font-family: 'Sarabun', sans-serif;
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-main);
             margin: 0;
-            padding: 15px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .header-card {
-            width: 90%;
-            background: var(--primary);
-            color: white;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: var(--accent-shadow);
-            margin-bottom: 25px;
-        }
+        .container { width: 100%; max-width: 600px; }
 
-        h1 { margin: 0; font-size: 1.4rem; }
-        p { margin: 5px 0 0; font-size: 0.9rem; opacity: 0.9; }
-
-        .section-title {
-            align-self: flex-start;
-            margin-left: 5%;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-            border-left: 4px solid var(--primary);
-            padding-left: 10px;
-        }
-
-        .item-card {
-            width: 90%;
-            background: var(--card);
-            padding: 15px;
-            margin-bottom: 12px;
-            border-radius: 15px;
+        /* Card ข้อมูลดิบ */
+        .raw-data-card {
+            background: #1e293b;
+            color: #f1f5f9;
+            padding: 25px;
+            border-radius: 24px;
+            margin-bottom: 30px;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .raw-data-card h2 { margin: 0 0 15px 0; font-size: 1.2rem; color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        .raw-item { font-size: 0.9rem; margin-bottom: 5px; display: flex; }
+        .raw-label { color: #94a3b8; min-width: 100px; }
+
+        /* ส่วนงานแก้ 20 ชุด */
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 25px 0 15px 10px;
+            display: flex;
+            align-items: center;
+            color: var(--primary);
+        }
+
+        .bib-card {
+            background: var(--card);
+            padding: 18px;
+            margin-bottom: 12px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            gap: 15px;
             transition: transform 0.2s;
         }
 
-        .item-card:active {
-            transform: scale(0.98);
-        }
+        .bib-card:hover { transform: translateY(-2px); border-color: var(--primary); }
 
-        .num-circle {
-            background: #f0f4f8;
+        .badge {
+            background: #eff6ff;
             color: var(--primary);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
+            font-weight: bold;
+            font-size: 0.8rem;
+            min-width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: flex;
             justify-content: center;
             align-items: center;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 0.8rem;
         }
 
-        .bib-text {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            display: inline;
-        }
+        .bib-content { font-size: 0.95rem; line-height: 1.6; }
+        .book-title { font-weight: bold; color: #0f172a; text-decoration: underline; }
 
+        /* ส่วนชื่อเพื่อน */
         .friend-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            width: 95%;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 40px;
         }
 
-        .friend-card {
+        .friend-item {
             background: white;
             padding: 12px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: var(--shadow);
             font-weight: bold;
-            color: var(--primary);
+            box-shadow: var(--shadow);
             border-bottom: 3px solid var(--primary);
         }
 
-        footer {
-            margin: 20px 0;
-            font-size: 0.8rem;
-            color: #95a5a6;
-        }
+        footer { text-align: center; color: var(--text-sub); font-size: 0.8rem; margin-bottom: 30px; }
     </style>
 </head>
 <body>
 
-    <div class="header-card">
-        <h1>ใบงานแก้: บรรณานุกรม</h1>
-        <p>จัดทำเสร็จสมบูรณ์ พร้อมตรวจสอบ</p>
+<div class="container">
+    <div class="raw-data-card">
+        <h2>📋 ข้อมูลดิบบรรณานุกรม</h2>
+        <div class="raw-item"><span class="raw-label">• ชื่อผู้แต่ง:</span> อรวรรณ สิริโชคชัยศรี</div>
+        <div class="raw-item"><span class="raw-label">• ชื่อหนังสือ:</span> การดูแลต้นไม้ในกระถาง</div>
+        <div class="raw-item"><span class="raw-label">• ปีพิมพ์:</span> 2566</div>
+        <div class="raw-item"><span class="raw-label">• พิมพ์ครั้งที่:</span> 3</div>
+        <div class="raw-item"><span class="raw-label">• สถานที่พิมพ์:</span> ขอนแก่น</div>
+        <div class="raw-item"><span class="raw-label">• สำนักพิมพ์:</span> แก่นนครการพิมพ์</div>
     </div>
 
-    <div class="section-title">1. บรรณานุกรม (คัด 20 ครั้ง)</div>
-    <div id="bib-list" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-        </div>
+    <div class="section-title"> งานแก้: บรรณานุกรม (คัด 20 ครั้ง)</div>
+    <div id="bib-list"></div>
 
-    <div class="section-title" style="margin-top: 20px;">2. รายชื่อเพื่อน (เรียง ก-ฮ)</div>
-    <div id="friend-list" class="friend-grid">
-        </div>
+    <div class="section-title">👥 รายชื่อเพื่อน 10 คน (เรียง ก-ฮ)</div>
+    <div id="friend-list" class="friend-grid"></div>
 
-    <footer>Gemini 3 Flash • Professional UI</footer>
+    <footer>บังเจ๋ก</footer>
+</div>
 
 <script>
-    // รูปแบบบรรณานุกรมที่ถูกต้องตามหลักวิชาการ
-    const bibOutput = "อรวรรณ สิริโชคชัยศรี. (2566). <strong>การดูแลต้นไม้ในกระถาง</strong> (พิมพ์ครั้งที่ 3). ขอนแก่น: แก่นนครการพิมพ์.";
+    // รูปแบบบรรณานุกรมที่ถูกต้อง
+    const formattedBib = `อรวรรณ สิริโชคชัยศรี. (2566). <span class="book-title">การดูแลต้นไม้ในกระถาง</span> (พิมพ์ครั้งที่ 3). ขอนแก่น: แก่นนครการพิมพ์.`;
     
-    // 1. Render บรรณานุกรม 20 ครั้ง แบบแยก Card
-    const bibContainer = document.getElementById('bib-list');
+    // แสดงผล 20 ครั้ง
+    const bibList = document.getElementById('bib-list');
     for (let i = 1; i <= 20; i++) {
         const div = document.createElement('div');
-        div.className = 'item-card';
-        div.innerHTML = `<span class="num-circle">${i}</span><span class="bib-text">${bibOutput}</span>`;
-        bibContainer.appendChild(div);
+        div.className = 'bib-card';
+        div.innerHTML = `
+            <div class="badge">${i}</div>
+            <div class="bib-content">${formattedBib}</div>
+        `;
+        bibList.appendChild(div);
     }
 
-    // 2. รายชื่อเพื่อน 10 ชื่อ
+    // ชื่อเพื่อน 10 คน
     const friends = ["อาร์ต", "ก้อง", "เจน", "ตอง", "บาส", "ขวัญ", "นนท์", "ปลา", "ฝ้าย", "มิว"];
     const sortedFriends = friends.sort((a, b) => a.localeCompare(b, 'th'));
     
-    const friendContainer = document.getElementById('friend-list');
-    sortedFriends.forEach((name, index) => {
+    const friendList = document.getElementById('friend-list');
+    sortedFriends.forEach((name, idx) => {
         const div = document.createElement('div');
-        div.className = 'friend-card';
-        div.textContent = `${index + 1}. ${name}`;
-        friendContainer.appendChild(div);
+        div.className = 'friend-item';
+        div.textContent = `${idx + 1}. ${name}`;
+        friendList.appendChild(div);
     });
 </script>
 
